@@ -16,7 +16,6 @@ import { Button } from "@/components/ui/button";
 import { 
   Home, 
   BookOpen, 
-  MessageSquareCode, 
   FileQuestion, 
   TestTube, 
   Code, 
@@ -50,15 +49,20 @@ export const SidebarWrapper = ({ children }: SidebarWrapperProps) => {
 const AppSidebar = () => {
   const location = useLocation();
   const [collapsed, setCollapsed] = useState(false);
+  const { setOpen } = useSidebar();
 
   const isActive = (path: string) => {
     return location.pathname === path;
   };
 
+  // Use the useSidebar hook to manage collapsed state
+  const toggleCollapsed = () => {
+    setCollapsed(!collapsed);
+    setOpen(!collapsed);
+  };
+
   return (
     <ShadcnSidebar
-      collapsed={collapsed}
-      onCollapsedChange={setCollapsed}
       className="border-r border-border h-screen"
     >
       <SidebarHeader className="p-4 flex justify-between items-center">
@@ -71,7 +75,7 @@ const AppSidebar = () => {
         <Button 
           variant="ghost" 
           size="icon" 
-          onClick={() => setCollapsed(!collapsed)}
+          onClick={toggleCollapsed}
           className="hidden md:flex"
         >
           {collapsed ? <ChevronRight size={18} /> : <ChevronLeft size={18} />}
@@ -142,5 +146,8 @@ const AppSidebar = () => {
     </ShadcnSidebar>
   );
 };
+
+// Import useSidebar hook from the component library
+import { useSidebar } from "@/components/ui/sidebar";
 
 export default AppSidebar;
