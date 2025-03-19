@@ -57,7 +57,6 @@ const AppSidebar = () => {
 
   return (
     <ShadcnSidebar
-      defaultCollapsed={false}
       collapsed={collapsed}
       onCollapsedChange={setCollapsed}
       className="border-r border-border h-screen"
@@ -82,7 +81,7 @@ const AppSidebar = () => {
       <SidebarContent className="px-2">
         <SidebarMenu>
           <SidebarMenuItem>
-            <SidebarMenuButton asChild active={isActive('/dashboard')}>
+            <SidebarMenuButton asChild isActive={isActive('/dashboard')}>
               <Link to="/dashboard" className="flex items-center space-x-2">
                 <Home className="h-5 w-5" />
                 {!collapsed && <span>Home</span>}
@@ -91,7 +90,7 @@ const AppSidebar = () => {
           </SidebarMenuItem>
           
           <SidebarMenuItem>
-            <SidebarMenuButton asChild active={isActive('/courses')}>
+            <SidebarMenuButton asChild isActive={isActive('/courses')}>
               <Link to="/courses" className="flex items-center space-x-2">
                 <BookOpen className="h-5 w-5" />
                 {!collapsed && <span>Courses</span>}
@@ -100,7 +99,7 @@ const AppSidebar = () => {
           </SidebarMenuItem>
 
           <SidebarMenuItem>
-            <SidebarMenuButton asChild active={isActive('/ai-doubt-solver')}>
+            <SidebarMenuButton asChild isActive={isActive('/ai-doubt-solver')}>
               <Link to="/ai-doubt-solver" className="flex items-center space-x-2">
                 <FileQuestion className="h-5 w-5" />
                 {!collapsed && <span>AI Doubt Solver</span>}
@@ -109,7 +108,7 @@ const AppSidebar = () => {
           </SidebarMenuItem>
 
           <SidebarMenuItem>
-            <SidebarMenuButton asChild active={isActive('/ai-code-analyzer')}>
+            <SidebarMenuButton asChild isActive={isActive('/ai-code-analyzer')}>
               <Link to="/ai-code-analyzer" className="flex items-center space-x-2">
                 <Code className="h-5 w-5" />
                 {!collapsed && <span>AI Code Analyzer</span>}
@@ -118,7 +117,7 @@ const AppSidebar = () => {
           </SidebarMenuItem>
 
           <SidebarMenuItem>
-            <SidebarMenuButton asChild active={isActive('/ai-test')}>
+            <SidebarMenuButton asChild isActive={isActive('/ai-test')}>
               <Link to="/ai-test" className="flex items-center space-x-2">
                 <TestTube className="h-5 w-5" />
                 {!collapsed && <span>Take AI Test</span>}
